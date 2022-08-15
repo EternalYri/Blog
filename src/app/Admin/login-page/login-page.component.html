@@ -1,5 +1,8 @@
 <form class="forms" [formGroup]="form!" (submit)="onSubmit()">
   <h2>Войти</h2>
+  <div class="auth" *ngIf="auth.error$ | async as error">
+    {{error}}
+  </div>
   <div class="form-control" [ngClass]="{invalid: form.get('email').invalid && form.get('email').touched}">
     <label for="email">E-mail: </label>
     <input type="email" id="email" formControlName="email">

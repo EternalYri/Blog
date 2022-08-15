@@ -15,7 +15,7 @@ export class LoginPageComponent implements OnInit {
   form!: FormGroup;
   submited = false;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(public auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
