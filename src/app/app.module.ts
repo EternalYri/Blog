@@ -9,6 +9,7 @@ import { PostPageComponent } from './post-page/post-page.component';
 import { PostComponent } from './shared/components/post/post.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthService } from './Admin/shared/services/auth.service';
+import { AuthGuard } from './Admin/shared/services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { AuthService } from './Admin/shared/services/auth.service';
     AppRoutingModule,
     SharedModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
