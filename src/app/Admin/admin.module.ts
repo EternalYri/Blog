@@ -7,6 +7,8 @@ import { CreatePageComponent } from './create-page/create-page.component';
 import { EditPageComponent } from './edit-page/edit-page.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginPageComponent } from "./login-page/login-page.component";
+import { AuthService } from "./shared/services/auth.service";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -20,10 +22,12 @@ import { LoginPageComponent } from "./login-page/login-page.component";
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    SharedModule,
     RouterModule.forChild([
     ])
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: []
 })
 
 export class AdminModule {

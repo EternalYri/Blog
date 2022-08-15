@@ -1,20 +1,20 @@
-<form class="forms" [formGroup]="form!">
+<form class="forms" [formGroup]="form!" (submit)="onSubmit()">
   <h2>Войти</h2>
-  <div class="form-control">
+  <div class="form-control" [ngClass]="{invalid: form.get('email').invalid && form.get('email').touched}">
     <label for="email">E-mail: </label>
     <input type="email" id="email" formControlName="email">
     <div class="validation" *ngIf="form.get('email').invalid && form.get('email').touched">
-      <small>error</small>
+      <small>Неверный E-Mail</small>
     </div>
   </div>
 
-  <div class="form__control">
+  <div class="form__control" [ngClass]="{invalid: form.get('password').invalid && form.get('password').touched}">
     <label for="password">Password: </label>
     <input type="password" id="password" formControlName="password">
     <div class="validation" *ngIf="form.get('password').touched && form.get('password').invalid">
-      <small>error</small>
+      <small>Неверный пароль</small>
     </div>
   </div>
-  <button type="submit" [disabled]="form.invalid">Войти</button>
+  <button type="submit" [disabled]="form.invalid || submited">Войти</button>
 </form>
 
