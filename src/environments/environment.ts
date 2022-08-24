@@ -6,7 +6,8 @@ import { Enviroment } from "./interface";
 
 export const environment: Enviroment = {
   production: false,
-  apiKey: 'AIzaSyDQyEkqFuq4F-LLlPu-rAPQCh5SdUvBQxo'
+  apiKey: 'AIzaSyDQyEkqFuq4F-LLlPu-rAPQCh5SdUvBQxo',
+  fbDbUrl: 'https://blog-fa92d-default-rtdb.firebaseio.com'
 };
 
 /*
