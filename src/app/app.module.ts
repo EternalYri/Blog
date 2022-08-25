@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,7 +10,14 @@ import { PostComponent } from './shared/components/post/post.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthService } from './Admin/shared/services/auth.service';
 import { AuthGuard } from './Admin/shared/services/auth.guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './shared/auth.inteceptor';
 
+const Inteceptor_Provider: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  multi: true,
+  useClass: AuthInterceptor
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +31,7 @@ import { AuthGuard } from './Admin/shared/services/auth.guard';
     AppRoutingModule,
     SharedModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, Inteceptor_Provider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
