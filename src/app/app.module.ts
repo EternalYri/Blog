@@ -12,6 +12,11 @@ import { AuthService } from './Admin/shared/services/auth.service';
 import { AuthGuard } from './Admin/shared/services/auth.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/auth.inteceptor';
+import { AlertService } from './Admin/shared/services/alert.service';
+import { registerLocaleData } from '@angular/common';
+import ruLocale from '@angular/common/locales/ru';
+
+registerLocaleData(ruLocale, 'ru')
 
 const Inteceptor_Provider: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -31,7 +36,7 @@ const Inteceptor_Provider: Provider = {
     AppRoutingModule,
     SharedModule
   ],
-  providers: [AuthService, AuthGuard, Inteceptor_Provider],
+  providers: [AuthService, AuthGuard, Inteceptor_Provider, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

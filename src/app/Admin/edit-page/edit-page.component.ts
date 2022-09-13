@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription, switchMap } from 'rxjs';
 import { Post } from 'src/app/shared/components/interfaces';
 import { PostService } from 'src/app/shared/posts.service';
+import { AlertService } from '../shared/services/alert.service';
 
 @Component({
   selector: 'app-edit-page',
@@ -12,7 +13,7 @@ import { PostService } from 'src/app/shared/posts.service';
 })
 export class EditPageComponent implements OnInit, OnDestroy {
 
-  constructor(private route: ActivatedRoute, private postService: PostService) { }
+  constructor(private route: ActivatedRoute, private postService: PostService, private alert: AlertService) { }
   ngOnDestroy() {
     if(this.uSub) {
       this.uSub.unsubscribe()
@@ -36,6 +37,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
     }).subscribe(()=>{
       this.submited = false;
     })
+    this.alert.warning('Пост был изменен!')
   }
 
   ngOnInit() {

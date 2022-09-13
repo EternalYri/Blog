@@ -7,9 +7,9 @@ import { CreatePageComponent } from './create-page/create-page.component';
 import { EditPageComponent } from './edit-page/edit-page.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginPageComponent } from "./login-page/login-page.component";
-// import { AuthService } from "./shared/services/auth.service";
 import { SharedModule } from "../shared/shared.module";
 import { SearchPipe } from "./shared/search.pipe";
+import { AlertComponent } from './shared/components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { SearchPipe } from "./shared/search.pipe";
     CreatePageComponent,
     EditPageComponent,
     LoginPageComponent,
-    SearchPipe
+    SearchPipe,
+    AlertComponent
   ],
   imports: [
     FormsModule,
