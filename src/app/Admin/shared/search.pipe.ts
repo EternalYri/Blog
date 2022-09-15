@@ -6,12 +6,9 @@ import { Post } from "src/app/shared/components/interfaces";
 })
 
 export class SearchPipe implements PipeTransform{
-  transform(posts: Post[], search = ''): Post[] {
-    if(search.trim()) {
-      return posts
-    }
+  transform(posts: Post[], searchStr: String = ''): Post[] {
     return posts.filter((post)=>{
-      return post.title.toLowerCase().includes(search.toLocaleLowerCase())
+      return post.title.toLowerCase().includes(searchStr.toLocaleLowerCase())
     })
   }
 

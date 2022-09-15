@@ -3,15 +3,6 @@
     <input type="text" placeholder="Найти пост..." [(ngModel)]="searchStr">
   </div>
   <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Автор</th>
-        <th>Название</th>
-        <th>Дата</th>
-        <th>Действия</th>
-      </tr>
-    </thead>
     <tbody>
       <tr *ngFor="let post of posts | searchPosts: searchStr; let idx = index ">
         <td>{{idx + 1}}</td>
